@@ -1,36 +1,36 @@
-package com.sean.sort;
-
-import com.sun.scenario.effect.impl.sw.java.JSWColorAdjustPeer;
+package com.sean.排序;
 
 import java.util.Arrays;
 
 /**
- * description 选择排序
+ * description 冒泡排序
  *
- * @author chenxu 2020/04/06 20:30
+ * @author chenxu 2020/04/06 20:38
  */
-public class Code01_SelectionSort {
+public class Code02_BubbleSort {
 
-    public static void selectionSort(int[] array) {
+    public static void bubbleSort(int[] array) {
         if (array == null || array.length < 2) {
             return;
         }
 
-        for (int i = 0; i < array.length - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < array.length; j++) {
-                if (array[j] < array[minIndex]) {
-                    minIndex = j;
+        for (int i = array.length - 1; i > 0; i--) {
+
+            for (int j = 0; j < i; j++) {
+                if (array[j] > array[j+1]) {
+                    swap(array, j, j+1);
                 }
             }
-            swap(array, i, minIndex);
         }
     }
 
     public static void swap(int[] array, int i, int j) {
-        int tmp = array[i];
-        array[i]  = array[j];
-        array[j]  = tmp;
+//        int tmp = array[i];
+//        array[i] = array[j];
+//        array[j]  = tmp;
+        array[i] = array[i] ^ array[j];
+        array[j] = array[i] ^ array[j];
+        array[i] = array[i] ^ array[j];
     }
 
     // for test
@@ -98,12 +98,10 @@ public class Code01_SelectionSort {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            selectionSort(arr1);
+            bubbleSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
-                printArray(arr1);
-                printArray(arr2);
                 break;
             }
         }
@@ -111,7 +109,7 @@ public class Code01_SelectionSort {
 
         int[] arr = generateRandomArray(maxSize, maxValue);
         printArray(arr);
-        selectionSort(arr);
+        bubbleSort(arr);
         printArray(arr);
     }
 

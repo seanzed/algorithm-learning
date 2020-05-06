@@ -1,4 +1,4 @@
-package com.sean.sort;
+package com.sean.排序;
 
 /**
  * description 快速排序

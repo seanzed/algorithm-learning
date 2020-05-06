@@ -1,4 +1,4 @@
-package com.sean.sort;
+package com.sean.排序;
 
 /**
  * description 二分法查找变种，在arr上，找满足>=value的最左位置

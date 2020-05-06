@@ -1,36 +1,34 @@
-package com.sean.sort;
+package com.sean.排序;
 
 import java.util.Arrays;
 
 /**
- * description 冒泡排序
+ * description 选择排序
  *
- * @author chenxu 2020/04/06 20:38
+ * @author chenxu 2020/04/06 20:30
  */
-public class Code02_BubbleSort {
+public class Code01_SelectionSort {
 
-    public static void bubbleSort(int[] array) {
+    public static void selectionSort(int[] array) {
         if (array == null || array.length < 2) {
             return;
         }
 
-        for (int i = array.length - 1; i > 0; i--) {
-
-            for (int j = 0; j < i; j++) {
-                if (array[j] > array[j+1]) {
-                    swap(array, j, j+1);
+        for (int i = 0; i < array.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
                 }
             }
+            swap(array, i, minIndex);
         }
     }
 
     public static void swap(int[] array, int i, int j) {
-//        int tmp = array[i];
-//        array[i] = array[j];
-//        array[j]  = tmp;
-        array[i] = array[i] ^ array[j];
-        array[j] = array[i] ^ array[j];
-        array[i] = array[i] ^ array[j];
+        int tmp = array[i];
+        array[i]  = array[j];
+        array[j]  = tmp;
     }
 
     // for test
@@ -98,10 +96,12 @@ public class Code02_BubbleSort {
         for (int i = 0; i < testTime; i++) {
             int[] arr1 = generateRandomArray(maxSize, maxValue);
             int[] arr2 = copyArray(arr1);
-            bubbleSort(arr1);
+            selectionSort(arr1);
             comparator(arr2);
             if (!isEqual(arr1, arr2)) {
                 succeed = false;
+                printArray(arr1);
+                printArray(arr2);
                 break;
             }
         }
@@ -109,7 +109,7 @@ public class Code02_BubbleSort {
 
         int[] arr = generateRandomArray(maxSize, maxValue);
         printArray(arr);
-        bubbleSort(arr);
+        selectionSort(arr);
         printArray(arr);
     }
 
