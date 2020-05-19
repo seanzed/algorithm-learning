@@ -1,6 +1,8 @@
 package com.sean.二叉树;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * description 给定一个二叉树，返回它的 后序 遍历。
@@ -11,7 +13,30 @@ import java.util.List;
 public class _145_二叉树的后序遍历 {
 
     public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        postorderTraversal(root, result);
 
-        return null;
+        return result;
+    }
+
+    public void postorderTraversal(TreeNode root, List<Integer> result) {
+        if(root == null) return;
+
+        postorderTraversal(root.left, result);
+        postorderTraversal(root.right, result);
+        result.add(root.val);
+    }
+
+    public List<Integer> postorderTraversal1(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()) {
+
+        }
+
+        return result;
     }
 }

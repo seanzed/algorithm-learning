@@ -1,5 +1,6 @@
 package com.sean.二叉树;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,8 +11,15 @@ import java.util.List;
  */
 public class _590_N叉树的后序遍历 {
 
+    public List<Integer> results = new ArrayList<>();
+
     public List<Integer> postorder(Node root) {
 
-        return null;
+        if (root == null) return results;
+        for (int i = 0; i < root.children.size(); i++) {
+            postorder(root.children.get(i));
+        }
+        results.add(root.val);
+        return results;
     }
 }

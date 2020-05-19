@@ -1,6 +1,8 @@
 package com.sean.二叉树;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * description 二叉树前序遍历
@@ -11,7 +13,37 @@ import java.util.List;
 public class _144_二叉树的前序遍历 {
 
     public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        preorderTraversal(root, result);
+        return result;
+    }
 
-        return null;
+    public void preorderTraversal(TreeNode root, List<Integer> result) {
+        if (root == null) return;
+
+        result.add(root.val);
+        preorderTraversal(root.left, result);
+        preorderTraversal(root.right, result);
+    }
+
+    public List<Integer> preorderTaversal1(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if (root == null) return result;
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            result.add(node.val);
+
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+        return result;
     }
 }

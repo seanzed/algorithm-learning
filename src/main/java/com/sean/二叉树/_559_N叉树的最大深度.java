@@ -1,5 +1,9 @@
 package com.sean.二叉树;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 /**
  * description 给定一个 N 叉树，找到其最大深度。
  *
@@ -11,8 +15,18 @@ package com.sean.二叉树;
 public class _559_N叉树的最大深度 {
 
     public int maxDepth(Node root) {
+        if (root == null) {
+            return 0;
+        } else if (root.children.size() == 0) {
+            return 1;
+        } else {
+            List<Integer> heights = new ArrayList<>();
+            for (Node item : root.children) {
+                heights.add(maxDepth(item));
+            }
 
-        return 0;
+            return Collections.max(heights) + 1;
+        }
     }
 
 }

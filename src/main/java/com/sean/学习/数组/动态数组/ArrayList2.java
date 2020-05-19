@@ -3,11 +3,11 @@ package com.sean.学习.数组.动态数组;
 import com.sean.学习.数组.AbstractList;
 
 /**
- * description 动态数组
+ * description 有缩容的动态数组
  *
- * @author chenxu 2020/05/06 20:21
+ * @author chenxu 2020/05/19 11:56
  */
-public class ArrayList<E> extends AbstractList<E> {
+public class ArrayList2<E> extends AbstractList<E> {
 
     /**
      * 所有元素
@@ -16,12 +16,12 @@ public class ArrayList<E> extends AbstractList<E> {
 
     private static final int DEFAULT_CAPACITY = 10;
 
-    public ArrayList(int capacity) {
+    public ArrayList2(int capacity) {
         capacity = (capacity < DEFAULT_CAPACITY) ? DEFAULT_CAPACITY : capacity;
         elements = (E[]) new Object[capacity];
     }
 
-    public ArrayList() {
+    public ArrayList2() {
         this(DEFAULT_CAPACITY);
     }
 
@@ -66,6 +66,9 @@ public class ArrayList<E> extends AbstractList<E> {
             elements[i - 1] = elements[i];
         }
         elements[--size] = null;
+
+        trim();
+
         return oldElement;
     }
 
@@ -94,6 +97,11 @@ public class ArrayList<E> extends AbstractList<E> {
             elements[i] = null;
         }
         size = 0;
+
+        // 缩容操作
+        if (elements != null && elements.length > DEFAULT_CAPACITY) {
+            elements = (E[]) new Object[DEFAULT_CAPACITY];
+        }
     }
 
     /**
@@ -115,6 +123,23 @@ public class ArrayList<E> extends AbstractList<E> {
         System.out.println(oldCapacity + "扩容为" + newCapacity);
     }
 
+    private void trim() {
+        // 30
+        int oldCapacity = elements.length;
+        // 15
+        int newCapacity = oldCapacity >> 1;
+        if (size > (newCapacity) || oldCapacity <= DEFAULT_CAPACITY) return;
+
+        // 剩余空间还很多
+        E[] newElements = (E[]) new Object[newCapacity];
+        for (int i = 0; i < size; i++) {
+            newElements[i] = elements[i];
+        }
+        elements = newElements;
+
+        System.out.println(oldCapacity + "缩容为" + newCapacity);
+    }
+
     @Override
     public String toString() {
         // size=3, [99, 88, 77]
@@ -134,4 +159,5 @@ public class ArrayList<E> extends AbstractList<E> {
         string.append("]");
         return string.toString();
     }
+
 }
