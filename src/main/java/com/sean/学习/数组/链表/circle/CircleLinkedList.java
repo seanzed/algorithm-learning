@@ -1,32 +1,37 @@
-package com.sean.学习.数组.链表;
+package com.sean.学习.数组.链表.circle;
 
 import com.sean.学习.数组.AbstractList;
 
 /**
- * description 链表
+ * description 双向循环列表
  *
- * @author chenxu 2020/05/06 20:22
+ * @author chenxu 2020/05/19 21:42
  */
-public class LinkedList<E> extends AbstractList<E> {
+public class CircleLinkedList<E> extends AbstractList<E> {
 
+    /**
+     * 头结点
+     */
     private Node<E> first;
 
+    /**
+     * 最后一个节点
+     */
     private Node<E> last;
 
-    private class Node<E> {
+    /**
+     * 当前节点
+     */
+    private Node<E> current;
+
+    private static class Node<E> {
         E element;
-        /**
-         * 前驱节点
-         */
         Node<E> prev;
-        /**
-         * 后继节点
-         */
         Node<E> next;
 
         public Node(Node<E> prev, E element, Node<E> next) {
-            this.element = element;
             this.prev = prev;
+            this.element = element;
             this.next = next;
         }
 
@@ -60,35 +65,38 @@ public class LinkedList<E> extends AbstractList<E> {
     @Override
     public E set(int index, E element) {
         Node<E> node = node(index);
-        E oleElement = node.element;
+        E oldElement = node.element;
         node.element = element;
-        return oleElement;
+        return oldElement;
     }
 
     @Override
     public void add(int index, E element) {
         rangeCheckForAdd(index);
 
-        // size = 0;
-        // index = 0;
+        // size == 0
+        // index == 0
         if (index == size) {
+            // 往最后面添加元素\
             Node<E> oldLast = last;
-            last = new Node<E>(last, element, null);
+            last = new Node<>(oldLast, element, first);
             if (oldLast == null) {
                 first = last;
+                first.next = first;
+                first.prev = first;
             } else {
                 oldLast.next = last;
+                first.prev = last;
             }
         } else {
             Node<E> next = node(index);
             Node<E> prev = next.prev;
             Node<E> node = new Node<>(prev, element, next);
+            prev.next = node;
             next.prev = node;
 
-            if (prev == null) {
+            if (next == first) {
                 first = node;
-            } else {
-                prev.next = node;
             }
         }
     }
@@ -96,24 +104,30 @@ public class LinkedList<E> extends AbstractList<E> {
     @Override
     public E remove(int index) {
         rangeCheck(index);
-        Node<E> node = node(index);
-        Node<E> prev = node.prev;
-        Node<E> next = node.next;
+        return remove(node(index));
+    }
 
-        if (prev == null) {
-            first = next;
+    private E remove(Node<E> node) {
+        if (size == 1) {
+            first = null;
+            last = null;
         } else {
+            Node<E> prev = node.prev;
+            Node<E> next = node.next;
             prev.next = next;
-        }
+            next.prev = prev;
 
-        if (next == null) {
-            last = prev;
-        } else {
-            prev.next = next;
+            if (node == first) { // index == 0
+                first = next;
+            }
+
+            if (node == last) { // index == size - 1
+                last = prev;
+            }
         }
 
         size--;
-        return node(index).element;
+        return node.element;
     }
 
     @Override
@@ -121,7 +135,7 @@ public class LinkedList<E> extends AbstractList<E> {
         if (element == null) {
             Node<E> node = first;
             for (int i = 0; i < size; i++) {
-                if (node(i).element == null) return i;
+                if (node.element == null) return i;
 
                 node = node.next;
             }
@@ -143,10 +157,34 @@ public class LinkedList<E> extends AbstractList<E> {
         last = null;
     }
 
+    public void reset() {
+        current = first;
+    }
+
+    public E next() {
+        if (current == null) return null;
+
+        current = current.next;
+        return current.element;
+    }
+
+    public E remove() {
+        if (current == null) return null;
+
+        Node<E> next = current.next;
+        E element = remove(current);
+        if (size == 0) {
+            current = null;
+        } else {
+            current = next;
+        }
+
+        return element;
+    }
+
+
     /**
      * 获取index位置对应的节点对象
-     * @param index
-     * @return
      */
     private Node<E> node(int index) {
         rangeCheck(index);
@@ -159,7 +197,7 @@ public class LinkedList<E> extends AbstractList<E> {
             return node;
         } else {
             Node<E> node = last;
-            for(int i = size - 1; i > index; i++) {
+            for (int i = size - 1; i > index; i--) {
                 node = node.prev;
             }
             return node;
