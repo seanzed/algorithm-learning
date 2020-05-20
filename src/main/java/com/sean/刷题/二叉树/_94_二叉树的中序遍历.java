@@ -45,7 +45,7 @@ public class _94_二叉树的中序遍历 {
             } else {
                 TreeNode node = stack.pop();
                 result.add(node.val);
-                root = root.right;
+                root = node.right;
             }
         }
 

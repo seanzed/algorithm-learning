@@ -1,5 +1,9 @@
 package com.sean.刷题.二叉搜索树;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * description 实现一个二叉搜索树迭代器。你将使用二叉搜索树的根节点初始化迭代器。
  *
@@ -11,19 +15,27 @@ package com.sean.刷题.二叉搜索树;
  */
 class BSTIterator {
 
-    public BSTIterator(TreeNode root) {
+    LinkedList<Integer> elements;
 
+    public BSTIterator(TreeNode root) {
+        elements = new LinkedList<>();
+        inorder(root);
+    }
+
+    private void inorder(TreeNode node) {
+        if (node == null) return;
+        inorder(node.left);
+        elements.add(node.val);
+        inorder(node.right);
     }
 
     /** @return the next smallest number */
     public int next() {
-
-        return 0;
+        return elements.poll();
     }
 
     /** @return whether we have a next smallest number */
     public boolean hasNext() {
-
-        return true;
+        return !elements.isEmpty();
     }
 }

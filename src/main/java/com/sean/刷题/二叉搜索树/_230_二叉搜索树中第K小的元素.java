@@ -8,8 +8,25 @@ package com.sean.刷题.二叉搜索树;
  */
 public class _230_二叉搜索树中第K小的元素 {
 
+    int ans;
+
+    int index = 0;
+
     public int kthSmallest(TreeNode root, int k) {
-        return 0;
+        inorder(root, k);
+        return ans;
     }
 
+    private void inorder(TreeNode node, int k) {
+        if (node == null) return;
+
+        inorder(node.left, k);
+        index++;
+        if (index == k) {
+            ans = node.val;
+            return;
+        }
+
+        inorder(node.right, k);
+    }
 }

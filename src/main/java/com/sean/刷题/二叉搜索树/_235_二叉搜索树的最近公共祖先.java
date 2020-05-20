@@ -12,6 +12,22 @@ package com.sean.刷题.二叉搜索树;
 public class _235_二叉搜索树的最近公共祖先 {
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+
+        int pVal = p.val;
+        int qVal = q.val;
+
+        TreeNode node = root;
+
+        while (node != null) {
+            int parentVal = node.val;
+            if (parentVal > pVal && parentVal > qVal) {
+                node = node.left;
+            } else if (parentVal < pVal && parentVal < qVal) {
+                node = node.right;
+            } else {
+                return node;
+            }
+        }
         return null;
     }
 }

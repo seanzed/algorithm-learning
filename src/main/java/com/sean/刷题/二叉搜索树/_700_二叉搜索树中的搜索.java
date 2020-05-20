@@ -9,7 +9,18 @@ package com.sean.刷题.二叉搜索树;
 public class _700_二叉搜索树中的搜索 {
 
     public TreeNode searchBST(TreeNode root, int val) {
+        if (root == null) return null;
 
+        TreeNode node = root;
+        while (node != null) {
+            if (node.val == val) {
+                return node;
+            } else if (node.val > val) {
+                node = node.left;
+            } else {
+                node = node.right;
+            }
+        }
         return null;
     }
 }
