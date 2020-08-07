@@ -1,6 +1,7 @@
 package com.sean.学习.堆;
 
-import com.sean.学习.二叉树.printer.BinaryTreeInfo;
+import com.sean.学习.printer.BinaryTreeInfo;
+
 import java.util.Comparator;
 
 /**

@@ -1,4 +1,4 @@
-package com.sean.学习.排序.tools;
+package com.sean.学习.tools;
 
 import java.util.Arrays;
 

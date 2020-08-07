@@ -1,4 +1,4 @@
-package com.sean.学习.排序.tools;
+package com.sean.学习.tools;
 
 public class Asserts {
 	public static void test(boolean value) {
