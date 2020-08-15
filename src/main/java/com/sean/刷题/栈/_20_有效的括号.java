@@ -12,7 +12,8 @@ import java.util.Stack;
  *
  * @author chenxu 2020/05/19 23:25
  */
-class Solution {
+class _20_有效的括号 {
+
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
 
