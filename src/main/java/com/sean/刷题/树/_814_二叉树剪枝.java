@@ -25,8 +25,15 @@ package com.sean.刷题.树;
 public class _814_二叉树剪枝 {
 
     public TreeNode pruneTree(TreeNode root) {
-        if (root == null) return null;
+        return containsOne(root) ? root : null;
+    }
 
-        return null;
+    private boolean containsOne(TreeNode node) {
+        if (node == null) return false;
+        boolean left = containsOne(node.left);
+        boolean right = containsOne(node.right);
+        if (!left) node.left = null;
+        if (!right) node.right = null;
+        return node.val == 1 || left || right;
     }
 }
