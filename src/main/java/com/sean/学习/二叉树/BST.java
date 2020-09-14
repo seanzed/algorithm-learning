@@ -1,16 +1,16 @@
-package com.sean.学习.AVL;
+package com.sean.学习.二叉树;
+
+import com.sean.学习.二叉树.BinaryTree;
 
 import java.util.Comparator;
 
 /**
- * BST
+ * description 二叉搜索树
  *
- * @author chenxu
- * @summary BST
- * @since 2020-08-11 20:03
+ * @author xchen11 2020/05/20 13:30
  */
+@SuppressWarnings("unchecked")
 public class BST<E> extends BinaryTree<E> {
-
     private Comparator<E> comparator;
 
     public BST() {
@@ -21,23 +21,13 @@ public class BST<E> extends BinaryTree<E> {
         this.comparator = comparator;
     }
 
-    /**
-     * 添加节点
-     *
-     * @param   element
-     * @summary 添加节点
-     * @author chenxu
-     * @version v1
-     * @since 2020-08-11 20:06:02
-     */
     public void add(E element) {
         elementNotNullCheck(element);
 
         // 添加第一个节点
         if (root == null) {
-            root = createNode(element, null);
+            root = createNode(element, null);;
             size++;
-
             // 新添加节点之后的处理
             afterAdd(root);
             return;
@@ -55,96 +45,52 @@ public class BST<E> extends BinaryTree<E> {
                 node = node.right;
             } else if (cmp < 0) {
                 node = node.left;
-            } else {
-                // 相等
-                node.element= element;
+            } else { // 相等
+                node.element = element;
                 return;
             }
         } while (node != null);
 
         // 看看插入到父节点的哪个位置
-        Node<E> newNode = createNode(element, parent);
+        Node<E> newNode = createNode(element, parent);;
         if (cmp > 0) {
             parent.right = newNode;
         } else {
             parent.left = newNode;
         }
-
         size++;
 
         // 新添加节点之后的处理
-        afterAdd(node);
+        afterAdd(newNode);
     }
 
     /**
-     * 插入节点后的处理
+     * 添加node之后的调整
      *
-     * @param   node
-     * @summary 插入节点后的处理
-     * @author chenxu
-     * @version v1
-     * @since 2020-08-11 20:09:55
+     * @param node 新添加的节点
      */
-    protected void afterAdd(Node<E> node) {
-
-    }
+    protected void afterAdd(Node<E> node) { }
 
     /**
      * 删除node之后的调整
-     *
-     * @param   node
-     * @summary 删除node之后的调整
-     * @author chenxu
-     * @version v1
-     * @since 2020-08-11 20:10:43
+     * @param node 被删除的节点
      */
-    protected void afterRemove(Node<E> node) {
+    protected void afterRemove(Node<E> node) { }
 
-    }
-
-    /**
-     * 删除元素
-     *
-     * @param   element
-     * @summary 删除元素
-     * @author chenxu
-     * @version v1
-     * @since 2020-08-11 20:29:12
-     */
     public void remove(E element) {
         remove(node(element));
     }
 
-    /**
-     * 查看是否包含该元素
-     *
-     * @param   element
-     * @return  {@link boolean}
-     * @summary 查看是否包含该元素
-     * @author chenxu
-     * @version v1
-     * @since 2020-08-11 20:29:28
-     */
     public boolean contains(E element) {
         return node(element) != null;
     }
 
-    /**
-     * 删除节点
-     *
-     * @param   node
-     * @summary 删除节点
-     * @author chenxu
-     * @version v1
-     * @since 2020-08-11 20:29:53
-     */
     private void remove(Node<E> node) {
         if (node == null) return;
 
         size--;
 
-        // 度为2的节点
-        if (node.hasTwoChildren()) {
+        if (node.hasTwoChildren()) { // 度为2的节点
             // 找到后继节点
             Node<E> s = successor(node);
             // 用后继节点的值覆盖度为2的节点的值
@@ -153,20 +99,18 @@ public class BST<E> extends BinaryTree<E> {
             node = s;
         }
 
-        // 删除node节点(node的度必然是是1或者0)
+        // 删除node节点（node的度必然是1或者0）
         Node<E> replacement = node.left != null ? node.left : node.right;
 
-        if (replacement != null) {
-            // node是度为1的节点
+        if (replacement != null) { // node是度为1的节点
             // 更改parent
             replacement.parent = node.parent;
             // 更改parent的left、right的指向
-            if (node.parent == null) {
-                // node是度为1的节点并且是根节点
+            if (node.parent == null) { // node是度为1的节点并且是根节点
                 root = replacement;
             } else if (node == node.parent.left) {
                 node.parent.left = replacement;
-            } else {
+            } else { // node == node.parent.right
                 node.parent.right = replacement;
             }
 
@@ -196,23 +140,15 @@ public class BST<E> extends BinaryTree<E> {
             if (cmp == 0) return node;
             if (cmp > 0) {
                 node = node.right;
-            } else {
+            } else { // cmp < 0
                 node = node.left;
             }
         }
-        return node;
+        return null;
     }
 
     /**
-     * 比较e1和e2, 返回值等于0, 代表e1和e2相等; 返回值大于0, 代表e1大于e2； 返回值小于0，代表e1小于e2
-     *
-     * @param   e1
-     * @param   e2
-     * @return  {@link int}
-     * @summary 比较e1和e2, 返回值等于0, 代表e1和e2相等; 返回值大于0, 代表e1大于e2； 返回值小于0，代表e1小于e2
-     * @author chenxu
-     * @version v1
-     * @since 2020-08-11 20:15:05
+     * @return 返回值等于0，代表e1和e2相等；返回值大于0，代表e1大于e2；返回值小于于0，代表e1小于e2
      */
     private int compare(E e1, E e2) {
         if (comparator != null) {
@@ -221,15 +157,6 @@ public class BST<E> extends BinaryTree<E> {
         return ((Comparable<E>)e1).compareTo(e2);
     }
 
-    /**
-     * 检查节点是否为空
-     *
-     * @param   element
-     * @summary 检查节点是否为空
-     * @author chenxu
-     * @version v1
-     * @since 2020-08-11 20:07:40
-     */
     private void elementNotNullCheck(E element) {
         if (element == null) {
             throw new IllegalArgumentException("element must not be null");

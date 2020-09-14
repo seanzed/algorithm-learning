@@ -86,15 +86,15 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
                 node.element = element;
                 return;
             }
-
-            Node<E> newNode = new Node<>(element, parent);
-            if (cmp > 0) {
-                node.right = newNode;
-            } else {
-                node.left = newNode;
-            }
-            size++;
         }
+
+        Node<E> newNode = new Node<>(element, parent);
+        if (cmp > 0) {
+            parent.right = newNode;
+        } else {
+            parent.left = newNode;
+        }
+        size++;
     }
 
     /**
@@ -156,22 +156,27 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
 
     @Override
     public Object root() {
-        return null;
+        return root;
     }
 
     @Override
     public Object left(Object node) {
-        return null;
+        return ((Node<E>)node).left;
     }
 
     @Override
     public Object right(Object node) {
-        return null;
+        return ((Node<E>)node).right;
     }
 
     @Override
     public Object string(Object node) {
-        return null;
+        Node<E> myNode = (Node<E>)node;
+        String parentString = "null";
+        if (myNode.parent != null) {
+            parentString = myNode.parent.element.toString();
+        }
+        return myNode.element + "_p(" + parentString + ")";
     }
 
     /**
@@ -275,11 +280,65 @@ public class BinarySearchTree<E> implements BinaryTreeInfo {
         visitor.stop = visitor.visit(node.element);
     }
 
+    public boolean isComplete() {
+        if (root == null) return false;
+
+        Queue<Node<E>> queue = new LinkedList<>();
+        queue.offer(root);
+
+        boolean leaf = false;
+        while (!queue.isEmpty()) {
+            Node<E> node = queue.poll();
+            if (leaf && !node.isLeaf()) return false;
+
+            if (node.left != null) {
+                queue.offer(node.left);
+            } else if (node.right != null) { // node.left == null && node.right != null
+                return false;
+            }
+
+            if (node.right != null) {
+                queue.offer(node.right);
+            } else { // node.right == null
+                leaf = true;
+            }
+        }
+
+        return true;
+    }
+
+//	public boolean isComplete() {
+//		if (root == null) return false;
+//
+//		Queue<Node<E>> queue = new LinkedList<>();
+//		queue.offer(root);
+//
+//		boolean leaf = false;
+//		while (!queue.isEmpty()) {
+//			Node<E> node = queue.poll();
+//			if (leaf && !node.isLeaf()) return false;
+//
+//			if (node.left != null && node.right != null) {
+//				queue.offer(node.left);
+//				queue.offer(node.right);
+//			} else if (node.left == null && node.right != null) {
+//				return false;
+//			} else { // 后面遍历的节点都必须是叶子节点
+//				leaf = true;
+//				if (node.left != null) {
+//					queue.offer(node.left);
+//				}
+//			}
+//		}
+//
+//		return true;
+//	}
+
     /**
      * 二叉树层次遍历
      * @param visitor
      */
-    public void levelorder(Visitor<E> visitor) {
+    public void levelOrder(Visitor<E> visitor) {
         if (root == null || visitor == null) return;
 
         Queue<Node<E>> queue = new LinkedList<>();

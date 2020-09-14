@@ -1,12 +1,17 @@
-package com.sean.学习.AVL;
+package com.sean.学习.二叉树;
 
 import com.sean.学习.printer.BinaryTreeInfo;
-
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * description
+ *
+ * @author xchen11 2020/05/20 13:29
+ */
 @SuppressWarnings("unchecked")
 public class BinaryTree<E> implements BinaryTreeInfo {
+
     protected int size;
     protected Node<E> root;
 
@@ -24,12 +29,16 @@ public class BinaryTree<E> implements BinaryTreeInfo {
     }
 
     public void preorder(Visitor<E> visitor) {
-        if (visitor == null) return;
+        if (visitor == null) {
+            return;
+        }
         preorder(root, visitor);
     }
 
     private void preorder(Node<E> node, Visitor<E> visitor) {
-        if (node == null || visitor.stop) return;
+        if (node == null || visitor.stop) {
+            return;
+        }
 
         visitor.stop = visitor.visit(node.element);
         preorder(node.left, visitor);
@@ -37,42 +46,58 @@ public class BinaryTree<E> implements BinaryTreeInfo {
     }
 
     public void inorder(Visitor<E> visitor) {
-        if (visitor == null) return;
+        if (visitor == null) {
+            return;
+        }
         inorder(root, visitor);
     }
 
     private void inorder(Node<E> node, Visitor<E> visitor) {
-        if (node == null || visitor.stop) return;
+        if (node == null || visitor.stop) {
+            return;
+        }
 
         inorder(node.left, visitor);
-        if (visitor.stop) return;
+        if (visitor.stop) {
+            return;
+        }
         visitor.stop = visitor.visit(node.element);
         inorder(node.right, visitor);
     }
 
     public void postorder(Visitor<E> visitor) {
-        if (visitor == null) return;
+        if (visitor == null) {
+            return;
+        }
         postorder(root, visitor);
     }
 
     private void postorder(Node<E> node, Visitor<E> visitor) {
-        if (node == null || visitor.stop) return;
+        if (node == null || visitor.stop) {
+            return;
+        }
 
         postorder(node.left, visitor);
         postorder(node.right, visitor);
-        if (visitor.stop) return;
+        if (visitor.stop) {
+            return;
+        }
         visitor.stop = visitor.visit(node.element);
     }
 
     public void levelOrder(Visitor<E> visitor) {
-        if (root == null || visitor == null) return;
+        if (root == null || visitor == null) {
+            return;
+        }
 
         Queue<Node<E>> queue = new LinkedList<>();
         queue.offer(root);
 
         while (!queue.isEmpty()) {
             Node<E> node = queue.poll();
-            if (visitor.visit(node.element)) return;
+            if (visitor.visit(node.element)) {
+                return;
+            }
 
             if (node.left != null) {
                 queue.offer(node.left);
@@ -85,14 +110,18 @@ public class BinaryTree<E> implements BinaryTreeInfo {
     }
 
     public boolean isComplete() {
-        if (root == null) return false;
+        if (root == null) {
+            return false;
+        }
         Queue<Node<E>> queue = new LinkedList<>();
         queue.offer(root);
 
         boolean leaf = false;
         while (!queue.isEmpty()) {
             Node<E> node = queue.poll();
-            if (leaf && !node.isLeaf()) return false;
+            if (leaf && !node.isLeaf()) {
+                return false;
+            }
 
             if (node.left != null) {
                 queue.offer(node.left);
@@ -111,7 +140,9 @@ public class BinaryTree<E> implements BinaryTreeInfo {
     }
 
     public int height() {
-        if (root == null) return 0;
+        if (root == null) {
+            return 0;
+        }
 
         // 树的高度
         int height = 0;
@@ -146,7 +177,9 @@ public class BinaryTree<E> implements BinaryTreeInfo {
     }
 
     private int height(Node<E> node) {
-        if (node == null) return 0;
+        if (node == null) {
+            return 0;
+        }
         return 1 + Math.max(height(node.left), height(node.right));
     }
 
@@ -155,7 +188,9 @@ public class BinaryTree<E> implements BinaryTreeInfo {
     }
 
     protected Node<E> predecessor(Node<E> node) {
-        if (node == null) return null;
+        if (node == null) {
+            return null;
+        }
 
         // 前驱节点在左子树当中（left.right.right.right....）
         Node<E> p = node.left;
@@ -177,7 +212,9 @@ public class BinaryTree<E> implements BinaryTreeInfo {
     }
 
     protected Node<E> successor(Node<E> node) {
-        if (node == null) return null;
+        if (node == null) {
+            return null;
+        }
 
         // 前驱节点在左子树当中（right.left.left.left....）
         Node<E> p = node.right;
@@ -197,21 +234,24 @@ public class BinaryTree<E> implements BinaryTreeInfo {
     }
 
     public static abstract class Visitor<E> {
+
         boolean stop;
+
         /**
          * @return 如果返回true，就代表停止遍历
          */
-        abstract boolean visit(E element);
+        protected abstract boolean visit(E element);
     }
 
     protected static class Node<E> {
-        E element;
 
-        Node<E> left;
+        protected E element;
 
-        Node<E> right;
+        protected Node<E> left;
 
-        Node<E> parent;
+        protected Node<E> right;
+
+        protected Node<E> parent;
 
         public Node(E element, Node<E> parent) {
             this.element = element;
@@ -234,6 +274,15 @@ public class BinaryTree<E> implements BinaryTreeInfo {
             return parent != null && this == parent.right;
         }
 
+        /**
+         * 返回兄弟节点
+         *
+         * @return  {@link Node<E>}
+         * @summary 返回兄弟节点
+         * @author chenxu
+         * @version v1
+         * @since 2020-09-08 23:35:31
+         */
         public Node<E> sibling() {
             if (isLeftChild()) {
                 return parent.right;
@@ -245,6 +294,38 @@ public class BinaryTree<E> implements BinaryTreeInfo {
 
             return null;
         }
+
+        public E getElement() {
+            return element;
+        }
+
+        public void setElement(E element) {
+            this.element = element;
+        }
+
+        public Node<E> getLeft() {
+            return left;
+        }
+
+        public void setLeft(Node<E> left) {
+            this.left = left;
+        }
+
+        public Node<E> getRight() {
+            return right;
+        }
+
+        public void setRight(Node<E> right) {
+            this.right = right;
+        }
+
+        public Node<E> getParent() {
+            return parent;
+        }
+
+        public void setParent(Node<E> parent) {
+            this.parent = parent;
+        }
     }
 
     @Override
@@ -254,16 +335,22 @@ public class BinaryTree<E> implements BinaryTreeInfo {
 
     @Override
     public Object left(Object node) {
-        return ((Node<E>)node).left;
+        return ((Node<E>) node).left;
     }
 
     @Override
     public Object right(Object node) {
-        return ((Node<E>)node).right;
+        return ((Node<E>) node).right;
     }
 
     @Override
     public Object string(Object node) {
+//        Node<E> myNode = (Node<E>) node;
+//        String parentString = "null";
+//        if (myNode.parent != null) {
+//            parentString = myNode.parent.element.toString();
+//        }
+//        return myNode.element + "_p(" + parentString + ")";
         return node;
     }
 }

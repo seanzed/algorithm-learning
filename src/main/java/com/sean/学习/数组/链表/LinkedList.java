@@ -69,8 +69,8 @@ public class LinkedList<E> extends AbstractList<E> {
     public void add(int index, E element) {
         rangeCheckForAdd(index);
 
-        // size = 0;
-        // index = 0;
+//         size = 0;
+//         index = 0;
         if (index == size) {
             Node<E> oldLast = last;
             last = new Node<E>(last, element, null);
@@ -91,6 +91,7 @@ public class LinkedList<E> extends AbstractList<E> {
                 prev.next = node;
             }
         }
+        size++;
     }
 
     @Override
@@ -109,11 +110,11 @@ public class LinkedList<E> extends AbstractList<E> {
         if (next == null) {
             last = prev;
         } else {
-            prev.next = next;
+            next.prev = prev;
         }
 
         size--;
-        return node(index).element;
+        return node.element;
     }
 
     @Override
@@ -159,7 +160,7 @@ public class LinkedList<E> extends AbstractList<E> {
             return node;
         } else {
             Node<E> node = last;
-            for(int i = size - 1; i > index; i++) {
+            for(int i = size - 1; i > index; i--) {
                 node = node.prev;
             }
             return node;
