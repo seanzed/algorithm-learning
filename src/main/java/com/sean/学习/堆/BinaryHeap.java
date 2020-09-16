@@ -51,6 +51,10 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
         this(elements, null);
     }
 
+    public BinaryHeap(Comparator<E> comparator) {
+        this(null, comparator);
+    }
+
     /**
      * 无参构造函数
      */
@@ -147,7 +151,7 @@ public class BinaryHeap<E> extends AbstractHeap<E> implements BinaryTreeInfo {
             E child = elements[childIndex];
 
             // 右子节点
-            int rightIndex = childIndex + 2;
+            int rightIndex = childIndex + 1;
             // 选出左右子节点最大的那个
             if (rightIndex < size && compare(elements[rightIndex], child) > 0) {
                 child = elements[childIndex = rightIndex];
