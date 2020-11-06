@@ -11,7 +11,7 @@ public class BubbleSort2<T extends Comparable<T>> extends Sort<T> {
 
     @Override
     protected void sort() {
-        for (int end = array.length - 1; end > 0; end --) {
+        for (int end = array.length - 1; end > 0; end--) {
             boolean sorted = true;
             for (int begin = 1; begin <= end; begin++) {
                 if (cmp(begin, begin - 1) < 0) {
@@ -20,7 +20,7 @@ public class BubbleSort2<T extends Comparable<T>> extends Sort<T> {
                 }
             }
 
-            if(sorted) {
+            if (sorted) {
                 break;
             }
         }
