@@ -14,11 +14,14 @@ public class LinkedList<E> extends AbstractList<E> {
     private Node<E> last;
 
     private class Node<E> {
+
         E element;
+
         /**
          * 前驱节点
          */
         Node<E> prev;
+
         /**
          * 后继节点
          */
