@@ -1,7 +1,9 @@
 package com.sean.刷题.链表;
 
 /**
- * description 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。 https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+ * description 给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。
+ *
+ * https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
  *
  * @author chenxu 2020/05/19 22:23
  */

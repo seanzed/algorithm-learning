@@ -7,6 +7,8 @@ import java.util.Queue;
 /**
  * description 合并 k 个排序链表，返回合并后的排序链表。请分析和描述算法的复杂度。
  *
+ * https://leetcode-cn.com/problems/merge-k-sorted-lists/
+ *
  * @author xchen11 2020/05/25 11:21
  */
 public class _23_合并K个排序链表 {

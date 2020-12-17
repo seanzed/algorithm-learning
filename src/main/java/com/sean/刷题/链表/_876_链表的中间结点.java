@@ -28,4 +28,15 @@ public class _876_链表的中间结点 {
         }
         return cur;
     }
+
+    public ListNode middleNode1(ListNode head) {
+        if (head == null)  return head;
+        ListNode fast = head, slow = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        return slow;
+    }
 }
