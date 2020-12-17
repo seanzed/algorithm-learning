@@ -1,5 +1,8 @@
 package com.sean.刷题.二叉树;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * description 给定一个二叉树，编写一个函数来获取这个树的最大宽度。树的宽度是所有层中的最大宽度。这个二叉树与满二叉树（full binary tree）结构相同，但一些节点为空。
  *
@@ -11,8 +14,22 @@ package com.sean.刷题.二叉树;
  */
 public class _662_二叉树最大宽度 {
 
-    public int widthOfBinaryTree(TreeNode root) {
+    int ans;
 
-        return 0;
+    Map<Integer, Integer> left;
+
+    public int widthOfBinaryTree(TreeNode root) {
+        ans = 0;
+        left = new HashMap<>();
+        dfs(root, 0, 0);
+        return ans;
+    }
+
+    public void dfs(TreeNode root, int depth, int pos) {
+        if (root == null) return;
+        left.putIfAbsent(depth, pos);
+        ans = Math.max(ans, pos - left.get(depth) + 1);
+        dfs(root.left, depth + 1, 2 * pos);
+        dfs(root.right, depth + 1, 2* pos + 1);
     }
 }

@@ -38,7 +38,7 @@ public class _589_N叉树的前序遍历 {
         if (root == null) return res;
         res.add(root.val);
         for (int i = 0; i < root.children.size(); i++) {
-            preorder(root.children.get(i));
+            preorder1(root.children.get(i));
         }
         return res;
     }
