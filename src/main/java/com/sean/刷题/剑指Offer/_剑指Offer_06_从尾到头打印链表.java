@@ -29,7 +29,7 @@ import java.util.LinkedList;
  * @summary _剑指_Offer_06_从尾到头打印链表
  * @since 2020-09-05 10:15
  */
-public class _剑指_Offer_06_从尾到头打印链表 {
+public class _剑指Offer_06_从尾到头打印链表 {
 
     public int[] reversePrint(ListNode head) {
         LinkedList<Integer> stack = new LinkedList<Integer>();

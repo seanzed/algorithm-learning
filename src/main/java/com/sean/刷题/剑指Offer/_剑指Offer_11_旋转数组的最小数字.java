@@ -31,7 +31,7 @@ public class _剑指Offer_11_旋转数组的最小数字 {
             } else if (numbers[mid] > numbers[high]) {
                 low = mid + 1;
             } else {
-                high -= 1;
+                high--;
             }
         }
         return numbers[low];
