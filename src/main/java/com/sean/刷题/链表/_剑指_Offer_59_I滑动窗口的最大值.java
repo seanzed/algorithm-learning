@@ -20,11 +20,11 @@ import java.util.LinkedList;
  *  1  3  -1 [-3  5  3] 6  7       5
  *  1  3  -1  -3 [5  3  6] 7       6
  *  1  3  -1  -3  5 [3  6  7]      7
- *  
+ *
  *
  * 提示：
  *
- * 你可以假设 k 总是有效的，在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小。
+ * 你可以假设 k 总是有效的，在输入数组不为空的情况下，1 ≤ k ≤  输入数组的大小。
  *
  * 链接：https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof
  *

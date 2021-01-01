@@ -22,7 +22,7 @@ package com.sean.刷题.深度优先搜索;
  *   3   3
  *  / \
  * 4   4
- * 返回 false 。
+ * 返回  false 。
  *
  * 链接：https://leetcode-cn.com/problems/check-balance-lcci
  *

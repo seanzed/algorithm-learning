@@ -17,7 +17,7 @@ package com.sean.刷题.递归;
  *
  * 1 / \ 4   5 / \   \ 4   4   5 输出:
  *
- * 2 注意: 给定的二叉树不超过10000个结点。 树的高度不超过1000。
+ * 2 注意: 给定的二叉树不超过10000个结点。  树的高度不超过1000。
  *
  * 链接：https://leetcode-cn.com/problems/longest-univalue-path
  *

@@ -10,7 +10,7 @@ import java.util.Stack;
  * _剑指_Offer_54_二叉搜索树的第k大节点
  * 给定一棵二叉搜索树，请找出其中第k大的节点。
  *
- *  
+ *   
  *
  * 示例 1:
  *
@@ -19,7 +19,7 @@ import java.util.Stack;
  *   / \
  *  1   4
  *   \
- *    2
+ *     2
  * 输出: 4
  * 示例 2:
  *
@@ -32,7 +32,7 @@ import java.util.Stack;
  *   /
  *  1
  * 输出: 4
- *  
+ *   
  *
  * 限制：
  *
