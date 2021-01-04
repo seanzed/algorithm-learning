@@ -81,21 +81,6 @@ public class _99_恢复二叉搜索树 {
         second.val = tmp;
     }
 
-    // 解题错误  @TODO
-    public void recoverTree1(TreeNode root) {
-        findWrongNodes(root);
-        TreeNode tmp = first;
-        first = second;
-        second = tmp;
-    }
-
-    private void findWrongNodes(TreeNode root) {
-        if (root == null) return;
-        findWrongNodes(root.left);
-        find(root);
-        findWrongNodes(root.right);
-    }
-
     private void find(TreeNode node) {
         // 出现逆序对
         if (prev != null && prev.val > node.val) {
