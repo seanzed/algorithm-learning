@@ -1,4 +1,6 @@
-package com.sean.刷题.二叉搜索树;
+package com.sean.刷题.二叉树.二叉搜索树;
+
+import com.sean.刷题.二叉树.TreeNode;
 
 /**
  * description 给定一个二叉搜索树，编写一个函数 kthSmallest 来查找其中第 k 个最小的元素。

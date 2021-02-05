@@ -1,4 +1,6 @@
-package com.sean.刷题.二叉搜索树;
+package com.sean.刷题.二叉树.二叉搜索树;
+
+import com.sean.刷题.二叉树.TreeNode;
 
 /**
  * description 给定二叉搜索树（BST）的根节点和要插入树中的值，将值插入二叉搜索树。 返回插入后二叉搜索树的根节点。 保证原始二叉搜索树中不存在新值。

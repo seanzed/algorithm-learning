@@ -1,8 +1,8 @@
-package com.sean.刷题.二叉搜索树;
+package com.sean.刷题.二叉树.二叉搜索树;
 
-import java.util.ArrayList;
+import com.sean.刷题.二叉树.TreeNode;
+
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * description 实现一个二叉搜索树迭代器。你将使用二叉搜索树的根节点初始化迭代器。

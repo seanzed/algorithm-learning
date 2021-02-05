@@ -1,4 +1,6 @@
-package com.sean.刷题.二叉搜索树;
+package com.sean.刷题.二叉树.二叉搜索树;
+
+import com.sean.刷题.二叉树.TreeNode;
 
 /**
  * description

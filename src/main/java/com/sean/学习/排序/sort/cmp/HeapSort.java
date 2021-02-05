@@ -15,6 +15,7 @@ public class HeapSort<T extends Comparable<T>> extends Sort<T> {
     protected void sort() {
         // 原地建堆
         heapSize = this.array.length;
+        // 自下而上的下滤
         for (int i = (heapSize >> 1) - 1 ; i >= 0; i--) {
             siftDown(i);
         }
@@ -51,6 +52,7 @@ public class HeapSort<T extends Comparable<T>> extends Sort<T> {
 
             // 大于等于子节点，退出循环
             if (cmp(element, child) >= 0) break;
+            array[index] = child;
             index = childIndex;
         }
         array[index] = element;

@@ -1,4 +1,6 @@
-package com.sean.刷题.二叉搜索树;
+package com.sean.刷题.二叉树.二叉搜索树;
+
+import com.sean.刷题.二叉树.TreeNode;
 
 /**
  * description 给定一个二叉搜索树, 找到该树中两个指定节点的最近公共祖先。

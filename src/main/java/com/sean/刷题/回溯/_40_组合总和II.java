@@ -55,6 +55,7 @@ public class _40_组合总和II {
     private void dsf(int[] candidates, int target, List<List<Integer>> ans, List<Integer> list , int idx) {
         if (target == 0) {
             ans.add(new ArrayList<>(list));
+            return;
         }
 
         int length = candidates.length;
