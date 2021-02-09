@@ -28,7 +28,6 @@ package com.sean.刷题.深度优先搜索;
  *
  * @author chenxu
  * @summary _面试题_04_04_检查平衡性
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-20 13:19
  */
 public class _面试题_04_04_检查平衡性 {

@@ -30,7 +30,6 @@ import java.util.Map;
  *
  * @author chenxu
  * @summary _993_二叉树的堂兄弟节点
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-22 14:12
  */
 public class _993_二叉树的堂兄弟节点 {

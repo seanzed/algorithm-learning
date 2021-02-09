@@ -10,7 +10,6 @@ import java.util.Comparator;
  *
  * @author chenxu
  * @summary TreeSet
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-09-08 23:15
  */
 public class TreeSet<E> implements Set<E> {

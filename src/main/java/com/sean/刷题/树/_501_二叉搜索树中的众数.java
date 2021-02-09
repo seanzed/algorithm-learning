@@ -20,7 +20,6 @@ import java.util.List;
  *
  * @author chenxu
  * @summary _501_二叉搜索树中的众数
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-22 16:38
  */
 public class _501_二叉搜索树中的众数 {

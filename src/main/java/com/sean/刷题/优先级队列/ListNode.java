@@ -1,4 +1,4 @@
-package com.sean.刷题.二叉树;
+package com.sean.刷题.优先级队列;
 
 /**
  * ListNode

@@ -34,13 +34,10 @@ public class _215_数组中的第K个最大元素 {
         for (int i = 0; i < nums.length; i++) {
             if (priorityQueue.size() < k) {
                 priorityQueue.offer(nums[i]);
-            } else {
-                Integer value = priorityQueue.peek();
+            } else if (priorityQueue.peek() < nums[i]) {
                 // 如果当前值，大于小顶堆堆顶值，就插入
-                if (value < nums[i]) {
-                    priorityQueue.remove();
-                   priorityQueue.offer(nums[i]);
-                }
+                priorityQueue.remove();
+                priorityQueue.offer(nums[i]);
             }
         }
 

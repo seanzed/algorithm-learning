@@ -37,7 +37,6 @@ import java.util.Stack;
  *
  * @author chenxu
  * @summary _1130_叶值的最小代价生成树
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-27 08:50
  */
 public class _1130_叶值的最小代价生成树 {

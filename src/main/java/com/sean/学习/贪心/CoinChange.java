@@ -7,7 +7,6 @@ import java.util.Arrays;
  *
  * @author chenxu
  * @summary CoinChange
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-07 14:59
  */
 public class CoinChange {

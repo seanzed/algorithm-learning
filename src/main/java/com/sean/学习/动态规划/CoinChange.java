@@ -5,7 +5,6 @@ package com.sean.学习.动态规划;
  *
  * @author chenxu
  * @summary CoinChange
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-10 11:24
  */
 public class CoinChange {

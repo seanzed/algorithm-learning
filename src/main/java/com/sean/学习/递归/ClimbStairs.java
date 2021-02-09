@@ -5,7 +5,6 @@ package com.sean.学习.递归;
  *
  * @author chenxu
  * @summary 爬楼梯
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-07 10:27
  */
 public class ClimbStairs {

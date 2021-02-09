@@ -40,7 +40,6 @@ package com.sean.刷题.剑指Offer;
  *
  * @author chenxu
  * @summary _剑指Offer_67_把字符串转换成整数
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-12-18 23:38
  */
 public class _剑指Offer_67_把字符串转换成整数 {

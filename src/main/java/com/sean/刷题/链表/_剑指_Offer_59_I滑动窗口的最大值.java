@@ -30,7 +30,6 @@ import java.util.LinkedList;
  *
  * @author chenxu
  * @summary _剑指_Offer_59_I滑动窗口的最大值
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-23 23:48
  */
 public class _剑指_Offer_59_I滑动窗口的最大值 {

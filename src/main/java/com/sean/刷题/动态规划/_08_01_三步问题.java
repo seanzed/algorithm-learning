@@ -8,7 +8,6 @@ package com.sean.刷题.动态规划;
  *
  * @author chenxu
  * @summary _08_01_三步问题
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-15 11:40
  */
 public class _08_01_三步问题 {

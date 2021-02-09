@@ -19,7 +19,6 @@ package com.sean.刷题.动态规划;
  *
  * @author chenxu
  * @summary _198_打家劫舍
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-15 11:26
  */
 public class _198_打家劫舍 {

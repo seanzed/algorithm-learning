@@ -27,7 +27,6 @@ import java.util.List;
  *
  * @author chenxu
  * @summary _257_二叉树的所有路径
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-20 09:03
  */
 public class _257_二叉树的所有路径 {

@@ -17,12 +17,7 @@ public class _23_合并K个排序链表 {
     public ListNode mergeKLists(ListNode[] lists) {
         if (lists == null || lists.length == 0) return null;
 
-        Queue<ListNode> queue = new PriorityQueue<>(new Comparator<ListNode>() {
-            @Override
-            public int compare(ListNode o1, ListNode o2) {
-                return o1.val - o2.val;
-            }
-        });
+        Queue<ListNode> queue = new PriorityQueue<>((o1, o2) -> o1.val - o2.val);
 
         for (int i = 0; i < lists.length; i++) {
             if (lists[i] != null) {

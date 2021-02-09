@@ -22,7 +22,6 @@ import java.util.List;
  *
  * @author chenxu
  * @summary _面试题_08_06_汉诺塔问题
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-15 18:20
  */
 public class _面试题_08_06_汉诺塔问题 {

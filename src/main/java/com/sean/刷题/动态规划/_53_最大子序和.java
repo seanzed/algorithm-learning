@@ -13,7 +13,6 @@ package com.sean.刷题.动态规划;
  *
  * @author chenxu
  * @summary _53_最大子序和
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-15 09:38
  */
 public class _53_最大子序和 {

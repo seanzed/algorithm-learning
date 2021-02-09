@@ -22,7 +22,6 @@ package com.sean.刷题.递归;
  *
  * @author chenxu
  * @summary _面试题_17_12_BiNode
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-15 18:28
  */
 public class _面试题_17_12_BiNode {

@@ -5,7 +5,6 @@ package com.sean.学习.动态规划;
  *
  * @author chenxu
  * @summary 0 - 1背包问题
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-10 19:54
  */
 public class Knapsack {

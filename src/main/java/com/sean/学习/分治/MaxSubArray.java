@@ -5,7 +5,6 @@ package com.sean.学习.分治;
  *
  * @author chenxu
  * @summary 最大连续子序列和
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-07 15:19
  */
 public class MaxSubArray {

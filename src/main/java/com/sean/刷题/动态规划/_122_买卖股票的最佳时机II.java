@@ -12,7 +12,6 @@ package com.sean.刷题.动态规划;
  *
  * @author chenxu
  * @summary _122_买卖股票的最佳时机II
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-15 17:36
  */
 public class _122_买卖股票的最佳时机II {

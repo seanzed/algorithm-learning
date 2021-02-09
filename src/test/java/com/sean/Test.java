@@ -10,7 +10,6 @@ import java.util.List;
  *
  * @author chenxu
  * @summary Test
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-09-09 16:02
  */
 public class Test {

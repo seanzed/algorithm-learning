@@ -26,7 +26,6 @@ package com.sean.刷题.递归;
  *
  * @author chenxu
  * @summary _剑指Offer_10II_青蛙跳台阶问题
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-15 19:30
  */
 public class _剑指Offer_10II_青蛙跳台阶问题 {

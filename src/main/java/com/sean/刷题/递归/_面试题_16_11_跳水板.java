@@ -24,7 +24,6 @@ package com.sean.刷题.递归;
  *
  * @author chenxu
  * @summary _面试题_16_11_跳水板
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-15 18:59
  */
 public class _面试题_16_11_跳水板 {

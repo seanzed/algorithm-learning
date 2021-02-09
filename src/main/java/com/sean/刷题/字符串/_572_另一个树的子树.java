@@ -42,7 +42,6 @@ import com.sean.binarytree.TreeNode;
  *
  * @author chenxu
  * @summary _572_另一个树的子树
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-11-16 11:40
  */
 public class _572_另一个树的子树 {

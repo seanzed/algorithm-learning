@@ -27,7 +27,6 @@ package com.sean.刷题.动态规划;
  *
  * @author chenxu
  * @summary _516_最长回文子序列
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-28 13:51
  */
 public class _516_最长回文子序列 {

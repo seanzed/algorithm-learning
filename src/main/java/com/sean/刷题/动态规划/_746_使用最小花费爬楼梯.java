@@ -27,7 +27,6 @@ package com.sean.刷题.动态规划;
  *
  * @author chenxu
  * @summary _746_使用最小花费爬楼梯
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-15 10:49
  */
 public class _746_使用最小花费爬楼梯 {

@@ -5,7 +5,6 @@ package com.sean.刷题.深度优先搜索;
  *
  * @author chenxu
  * @summary ListNode
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-20 20:14
  */
 public class ListNode {

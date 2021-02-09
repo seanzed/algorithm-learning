@@ -20,7 +20,6 @@ package com.sean.刷题.树;
  *
  * @author chenxu
  * @summary _1379_找出克隆二叉树中的相同节点
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-22 16:52
  */
 public class _1379_找出克隆二叉树中的相同节点 {

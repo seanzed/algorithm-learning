@@ -15,7 +15,6 @@ package com.sean.刷题.链表;
  *
  * @author chenxu
  * @summary _面试题_02_02_返回倒数第k个节点
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-23 23:42
  */
 public class _面试题_02_02_返回倒数第k个节点 {

@@ -5,7 +5,6 @@ package com.sean.学习.动态规划;
  *
  * @author chenxu
  * @summary 最大连续子串
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-10 12:33
  */
 public class MaxSubArray {

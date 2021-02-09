@@ -5,7 +5,6 @@ package com.sean.学习.动态规划;
  *
  * @author chenxu
  * @summary 最长公共子串
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-10 20:34
  */
 public class LCSubstring {

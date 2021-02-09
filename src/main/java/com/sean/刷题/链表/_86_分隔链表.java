@@ -17,7 +17,6 @@ package com.sean.刷题.链表;
  *
  * @author chenxu
  * @summary _86_分隔链表
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-11-09 13:11
  */
 public class _86_分隔链表 {

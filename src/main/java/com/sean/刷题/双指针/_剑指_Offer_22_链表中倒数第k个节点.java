@@ -16,7 +16,6 @@ package com.sean.刷题.双指针;
  *
  * @author chenxu
  * @summary _剑指_Offer_22_链表中倒数第k个节点
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-29 09:12
  */
 public class _剑指_Offer_22_链表中倒数第k个节点 {

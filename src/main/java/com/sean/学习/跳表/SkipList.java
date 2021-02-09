@@ -7,7 +7,6 @@ import java.util.Comparator;
  *
  * @author chenxu
  * @summary 跳表
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-10 21:20
  */
 public class SkipList<K, V> {

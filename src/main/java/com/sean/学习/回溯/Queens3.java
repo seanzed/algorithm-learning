@@ -5,7 +5,6 @@ package com.sean.学习.回溯;
  *
  * @author chenxu
  * @summary Queens2
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-08-07 12:50
  */
 public class Queens3 {

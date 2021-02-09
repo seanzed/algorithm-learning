@@ -5,7 +5,6 @@ package com.sean.刷题.剑指Offer;
  *
  * @author chenxu
  * @summary ListNode
- * @Copyright (c) 2020, Lianjia Group All Rights Reserved.
  * @since 2020-09-05 10:16
  */
 public class ListNode {
