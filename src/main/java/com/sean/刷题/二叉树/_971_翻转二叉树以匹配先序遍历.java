@@ -27,20 +27,15 @@ import java.util.List;
  *
  *
  *
- * 输入：root = [1,2], voyage = [2,1]
- * 输出：[-1]
- * 示例 2：
+ * 输入：root = [1,2], voyage = [2,1] 输出：[-1] 示例 2：
  *
  *
  *
- * 输入：root = [1,2,3], voyage = [1,3,2]
- * 输出：[1]
- * 示例 3：
+ * 输入：root = [1,2,3], voyage = [1,3,2] 输出：[1] 示例 3：
  *
  *
  *
- * 输入：root = [1,2,3], voyage = [1,2,3]
- * 输出：[]
+ * 输入：root = [1,2,3], voyage = [1,2,3] 输出：[]
  *
  * 链接：https://leetcode-cn.com/problems/flip-binary-tree-to-match-preorder-traversal
  *
@@ -65,11 +60,12 @@ public class _971_翻转二叉树以匹配先序遍历 {
 
     boolean dfs(TreeNode root, int[] v) {
         if (root == null) return true;
+        // 如果当前节点不等于数据索引值
         if (root.val != v[i++]) return false;
         if (root.left != null && root.left.val != v[i]) {
             res.add(root.val);
             return dfs(root.right, v) && dfs(root.left, v);
         }
-        return dfs(root.left, v) &&dfs(root.right, v);
+        return dfs(root.left, v) && dfs(root.right, v);
     }
 }

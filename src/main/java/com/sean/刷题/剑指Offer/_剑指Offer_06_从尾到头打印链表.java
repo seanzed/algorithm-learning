@@ -34,12 +34,12 @@ public class _剑指Offer_06_从尾到头打印链表 {
     public int[] reversePrint(ListNode head) {
         LinkedList<Integer> stack = new LinkedList<Integer>();
         while(head != null) {
-            stack.addLast(head.val);
+            stack.push(head.val);
             head = head.next;
         }
         int[] res = new int[stack.size()];
         for(int i = 0; i < res.length; i++) {
-            res[i] = stack.removeLast();
+            res[i] = stack.pop();
         }
         return res;
     }

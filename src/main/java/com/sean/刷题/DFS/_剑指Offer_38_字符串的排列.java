@@ -74,4 +74,12 @@ public class _剑指Offer_38_字符串的排列 {
         chars[i] = chars[j];
         chars[j] = tmp;
     }
+
+    public static void main(String[] args) {
+        _剑指Offer_38_字符串的排列 test = new _剑指Offer_38_字符串的排列();
+        String[] strings = test.permutation("a");
+        for (String string : strings) {
+            System.out.println(string);
+        }
+    }
 }

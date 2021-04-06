@@ -40,7 +40,7 @@ public class _94_二叉树的中序遍历 {
 
         while (!stack.isEmpty() || root != null) {
             if (root != null) {
-                stack.add(root);
+                stack.push(root);
                 root = root.left;
             } else {
                 TreeNode node = stack.pop();
